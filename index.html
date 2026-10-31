@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="img/logo.jpg">
+<meta property="og:title" content="Loja Menina Moça">
+<meta property="og:description" content="Bolsas, eletrônicos, caixas de som, acessórios e muito mais em Pires do Rio – GO.">
+<meta property="og:image" content="img/bandeira.webp">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<title>Loja Menina Moça</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Loja Menina Moça em Pires do Rio – GO: bolsas, eletrônicos, caixas de som, acessórios, mochilas, brinquedos e muito mais. Rua Joaquim Antônio Teixeira, 824 – Centro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: vitrine de loja — cabeçalho com placa, colagem de "stories" no hero, prateleiras de categorias, balcão de visita com horário ao vivo */
+:root{
+  --blush:#fff4f7;        /* fundo, rosa bem clarinho da logo */
+  --petal:#ffe3ec;        /* superfícies rosadas */
+  --pink:#e0367f;         /* rosa chiclete da bandeira */
+  --pink-ink:#b81f63;     /* rosa para texto sobre fundo claro */
+  --plum:#3f1c4c;         /* roxo da placa da fachada */
+  --gold:#c4952f;         /* aro dourado da logo da bandeira */
+  --ink:#2b1630;          /* texto */
+  --muted:#6f5873;        /* texto secundário */
+  --card:#ffffff;
+  --line:#f2cfdc;
+  --wa:#1f9d55;
+  --on-plum:#fff4f7;
+  --shadow:0 18px 40px -22px rgba(63,28,76,.45);
+  --f-brand:"Pacifico","Brush Script MT",cursive;
+  --f-display:"Fraunces",Georgia,"Times New Roman",serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --blush:#1c1020; --petal:#2a1730; --pink:#ff5c9d; --pink-ink:#ff86b6; --plum:#2e1438;
+    --gold:#e2b75a; --ink:#fbeef3; --muted:#c9b2cc; --card:#24142a; --line:#45284d;
+    --wa:#2fbf6e; --on-plum:#fbeef3; --shadow:0 18px 40px -22px rgba(0,0,0,.7); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --blush:#1c1020; --petal:#2a1730; --pink:#ff5c9d; --pink-ink:#ff86b6; --plum:#2e1438;
+  --gold:#e2b75a; --ink:#fbeef3; --muted:#c9b2cc; --card:#24142a; --line:#45284d;
+  --wa:#2fbf6e; --on-plum:#fbeef3; --shadow:0 18px 40px -22px rgba(0,0,0,.7); color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--blush);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--plum)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+h1,h2,h3{font-family:var(--f-display);line-height:1.1;margin:0;text-wrap:balance;font-weight:700}
+h2{font-size:clamp(2rem,4.2vw,3rem);letter-spacing:-.01em}
+h3{font-size:1.3rem}
+p{margin:0}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-ink)}
+.brand-word{font-family:var(--f-brand);font-weight:400;color:var(--pink)}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:.85em 1.4em;border-radius:999px;font-weight:700;font-size:1rem;text-decoration:none;border:2px solid transparent;transition:transform .2s ease, box-shadow .2s ease, background .2s ease}
+.btn svg{width:1.2em;height:1.2em;flex:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 24px -12px var(--wa)}
+.btn-pink{background:var(--pink);color:#fff;box-shadow:0 10px 24px -12px var(--pink)}
+.btn-ghost{border-color:var(--plum);color:var(--plum)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-ghost{border-color:var(--pink-ink);color:var(--pink-ink)}}
+:root[data-theme="dark"] .btn-ghost{border-color:var(--pink-ink);color:var(--pink-ink)}
+
+/* Cabeçalho: a placa roxa da fachada */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--plum);color:var(--on-plum)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{width:48px;height:48px;border-radius:50%;border:2px solid var(--gold);background:#fff}
+.logo span{font-family:var(--f-brand);font-size:1.45rem;line-height:1;color:#fff4f7}
+.logo small{display:block;font-family:var(--f-body);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;font-weight:600;font-size:.95rem;opacity:.9}
+.nav a:hover{opacity:1;color:var(--gold)}
+.nav .btn{padding:.55em 1.1em;font-size:.92rem}
+@media (max-width:860px){.nav a:not(.btn){display:none}}
+@media (max-width:420px){.logo small{display:none}.nav .btn span{display:none}.nav .btn{padding:.6em}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,var(--petal) 0 60%,transparent 61%);z-index:0}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:64px 72px}
+.hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.status{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:.45em 1em;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:600;font-size:.92rem}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--muted);flex:none}
+.status.open i{background:var(--wa);box-shadow:0 0 0 4px color-mix(in srgb,var(--wa) 25%,transparent)}
+.status.closed i{background:var(--pink)}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:-.02em}
+.hero h1 .brand-word{display:block;font-size:1.12em;line-height:1.25;margin-top:.05em}
+.hero .lead{font-size:1.15rem;color:var(--muted);max-width:34ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.mini-facts{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--muted);font-size:.95rem}
+.mini-facts b{color:var(--ink)}
+
+/* Colagem de stories */
+.collage{position:relative;height:540px;min-width:0}
+.story{position:absolute;width:52%;max-width:100%;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:6px solid var(--card);background:var(--petal)}
+.story img{width:100%;height:100%;object-fit:cover}
+.story.s1{left:0;top:40px;transform:rotate(-6deg);z-index:2}
+.story.s2{right:0;top:0;transform:rotate(5deg);z-index:1}
+.story.s3{left:26%;bottom:-40px;width:44%;transform:rotate(-1deg);z-index:3}
+.sticker{position:absolute;z-index:4;right:2%;bottom:70px;width:118px;height:118px;border-radius:50%;background:var(--gold);color:#2b1630;display:grid;place-items:center;text-align:center;font-family:var(--f-display);font-weight:700;font-size:.95rem;line-height:1.1;transform:rotate(10deg);box-shadow:var(--shadow);animation:spin-in 1s .3s both cubic-bezier(.2,.9,.3,1.3)}
+.sticker em{display:block;font-family:var(--f-brand);font-style:normal;font-weight:400;font-size:1.25rem}
+@keyframes spin-in{from{transform:rotate(-40deg) scale(.6)}to{transform:rotate(10deg) scale(1)}}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:40px 64px}
+  .collage{height:460px;max-width:440px;width:100%;margin-inline:auto}
+}
+@media (max-width:420px){.collage{height:380px}.sticker{width:96px;height:96px;font-size:.8rem}}
+
+/* Faixa de produtos */
+.ticker{background:var(--pink);color:#fff;overflow:hidden;padding-block:14px;border-block:3px solid var(--gold)}
+.ticker-track{display:flex;gap:36px;width:max-content;animation:roll 38s linear infinite;font-family:var(--f-display);font-size:1.25rem;font-style:italic;white-space:nowrap}
+.ticker-track span::after{content:"✦";margin-left:36px;color:var(--gold);font-style:normal}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+/* Seções */
+section{padding-block:88px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px 40px;margin-bottom:40px}
+.sec-head .intro{display:flex;flex-direction:column;gap:12px;max-width:620px}
+.sec-head p{color:var(--muted)}
+
+/* Prateleiras / categorias */
+.shelves{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.shelf{position:relative;border-radius:24px;overflow:hidden;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0;transition:transform .25s ease, box-shadow .25s ease}
+.shelf:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.shelf .pic{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--petal);max-width:100%}
+.shelf .pic::before{content:"";position:absolute;inset:-24px;background:var(--bgimg,none) center/cover;filter:blur(20px);opacity:.6}
+.shelf .pic img{position:relative;width:100%;height:100%;object-fit:contain;transition:transform .6s ease}
+.shelf:hover .pic img{transform:scale(1.05)}
+.shelf .pic.art{display:grid;place-items:center;background:linear-gradient(140deg,var(--plum),color-mix(in srgb,var(--plum) 60%,var(--pink)))}
+.shelf .pic.art svg{width:46%;height:auto;color:var(--gold)}
+.shelf .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px}
+.shelf .body p{color:var(--muted);font-size:.97rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tags li{list-style:none;font-size:.78rem;font-weight:600;padding:.25em .7em;border-radius:999px;background:var(--petal);color:var(--pink-ink)}
+.tags{padding:0;margin-bottom:0}
+@media (max-width:900px){.shelves{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.shelves{grid-template-columns:1fr}}
+
+/* Novidades / reels */
+.news{background:var(--plum);color:var(--on-plum)}
+.news .eyebrow{color:var(--gold)}
+.news .sec-head p{color:color-mix(in srgb,var(--on-plum) 75%,transparent)}
+.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.reel{position:relative;aspect-ratio:9/16;max-width:100%;border-radius:20px;overflow:hidden;text-decoration:none;background:#000}
+.reel img{width:100%;height:100%;object-fit:cover;opacity:.92;transition:transform .5s ease,opacity .3s}
+.reel:hover img{transform:scale(1.04);opacity:1}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(30,10,35,.85))}
+.reel span{position:absolute;z-index:1;left:16px;right:16px;bottom:16px;color:#fff;font-weight:700;line-height:1.3}
+.reel .play{position:absolute;z-index:1;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center}
+.reel .play svg{width:14px;height:14px;fill:#3f1c4c;margin-left:2px}
+.news .btn-ghost{border-color:var(--gold);color:var(--gold)}
+@media (max-width:900px){.reels{grid-template-columns:repeat(2,1fr)}}
+
+/* A loja */
+.about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.about-photo{position:relative;max-width:420px;width:100%;justify-self:center}
+.about-photo img{border-radius:28px;aspect-ratio:1024/1536;object-fit:cover;width:100%;border:6px solid var(--card);box-shadow:var(--shadow)}
+.about-photo figcaption{margin-top:14px;text-align:center;font-family:var(--f-display);font-style:italic;color:var(--muted)}
+.about-photo figcaption b{font-style:normal;color:var(--pink-ink)}
+.about-photo .badge{position:absolute;left:-14px;bottom:72px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.about-photo .badge b{font-family:var(--f-display);font-size:1.6rem;line-height:1;color:var(--pink-ink)}
+.about-photo .badge small{color:var(--muted);font-size:.8rem}
+.about-copy{display:flex;flex-direction:column;gap:20px;min-width:0}
+.about-copy > p{color:var(--muted);max-width:60ch}
+.quotes{display:grid;gap:14px;margin-top:6px}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.quote p{font-family:var(--f-display);font-style:italic;font-size:1.12rem;line-height:1.4}
+.quote small{color:var(--muted);font-size:.85rem}
+.quote .who{display:flex;align-items:center;gap:10px;margin-top:4px}
+.quote .who i{width:34px;height:34px;border-radius:50%;background:var(--petal);color:var(--pink-ink);display:grid;place-items:center;font-style:normal;font-weight:700;flex:none}
+.quote .who b{display:block;font-size:.95rem;line-height:1.2}
+.quote .who small{display:block}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.95rem}
+@media (max-width:900px){.about .wrap{grid-template-columns:1fr;gap:40px}.about-photo .badge{left:8px}}
+
+/* Grupo VIP */
+.vip{padding-block:0 88px}
+.vip-card{position:relative;overflow:hidden;border-radius:32px;background:var(--pink);color:#fff;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;padding:48px clamp(24px,5vw,56px)}
+.vip-card::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;border:2px dashed rgba(255,255,255,.35);right:-90px;top:-120px}
+.vip-card h2 .brand-word{color:#fff}
+.vip-card p{opacity:.92;max-width:46ch;margin-top:12px}
+.vip-actions{display:flex;flex-direction:column;gap:12px;position:relative}
+.vip-actions a{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;color:#2b1630;text-decoration:none;font-weight:700;padding:16px 20px;border-radius:16px;transition:transform .2s}
+.vip-actions a:hover{transform:translateX(4px)}
+.vip-actions a small{display:block;font-weight:500;color:#6f5873;font-size:.82rem}
+.vip-actions svg{width:22px;height:22px;color:#1f9d55;flex:none}
+@media (max-width:800px){.vip-card{grid-template-columns:1fr}}
+
+/* Visite */
+.visit{background:var(--petal)}
+.visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.panel h3{display:flex;align-items:center;gap:10px}
+.panel h3 svg{width:22px;height:22px;color:var(--pink)}
+.hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.hours td{padding:12px 4px;border-bottom:1px dashed var(--line)}
+.hours td:last-child{text-align:right;font-weight:600}
+.hours tr.today td{color:var(--pink-ink);font-weight:700}
+.hours tr.today td:first-child::after{content:"hoje";margin-left:8px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--pink);color:#fff;padding:.15em .55em;border-radius:999px;vertical-align:middle}
+/* Mapa no estilo do Google Maps: mapa de ruas com alfinete vermelho, cartão do local e botão de satélite */
+.mapbox{position:relative;height:420px;border-radius:16px;overflow:hidden;background:#e8eaed;border:1px solid var(--line);isolation:isolate}
+.mapbox .leaflet-host,.mapbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#e8eaed;font-family:Roboto,Arial,sans-serif}
+.tiles-rua{filter:saturate(.3) brightness(1.07) contrast(.96)}
+.map-card{position:absolute;z-index:1000;left:10px;top:10px;max-width:min(270px,calc(100% - 20px));background:#fff;color:#202124;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.3);padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:2px 12px;font-family:Roboto,Arial,sans-serif;font-size:12px;line-height:1.4}
+.map-card b{font-size:14px;font-weight:500;grid-column:1}
+.map-card .addr{grid-column:1;color:#5f6368}
+.map-card .rate{grid-column:1;color:#5f6368;display:flex;align-items:center;gap:4px}
+.map-card .rate i{font-style:normal;color:#fbbc04;letter-spacing:-1px}
+.map-card .rate i.off{color:#dadce0}
+.map-card .big{grid-column:1/-1;color:#1a73e8;text-decoration:none;margin-top:4px}
+.map-card .big:hover{text-decoration:underline}
+.map-card .route{grid-column:2;grid-row:1/4;align-self:start;display:flex;flex-direction:column;align-items:center;gap:2px;color:#1a73e8;text-decoration:none;font-size:11px}
+.map-card .route span{width:28px;height:28px;border-radius:50%;background:#1a73e8;display:grid;place-items:center}
+.map-card .route svg{width:14px;height:14px;color:#fff}
+.map-toggle{position:absolute;z-index:1000;left:10px;bottom:24px;width:64px;height:64px;padding:0;border:2px solid #fff;border-radius:8px;overflow:hidden;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.35);background:#ccc}
+.map-toggle img{width:100%;height:100%;object-fit:cover}
+.map-toggle span{position:absolute;left:0;right:0;bottom:0;padding:2px 0;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;font:600 11px/1.3 Roboto,Arial,sans-serif;text-align:center}
+.gpin{filter:drop-shadow(0 2px 2px rgba(0,0,0,.35))}
+.leaflet-tooltip.pin-label{background:none;border:0;box-shadow:none;padding:0;color:#c5221f;font:700 14px/1.2 Roboto,Arial,sans-serif;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff}
+.leaflet-tooltip.pin-label::before{display:none}
+.mapbox .leaflet-control-zoom a{color:#666;font-weight:400}
+.mapbox .leaflet-control-attribution{font-size:10px}
+@media (max-width:420px){.mapbox{height:360px}}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.contact-list{display:grid;gap:14px;margin:0;padding:0}
+.contact-list li{list-style:none;display:flex;gap:14px;align-items:flex-start}
+.contact-list li > svg{width:20px;height:20px;color:var(--pink);flex:none;margin-top:4px}
+.contact-list b{display:block}
+.contact-list span{color:var(--muted)}
+.contact-list a{color:var(--pink-ink);font-weight:600}
+.sellers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seller{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;border:1px solid var(--line);text-decoration:none;background:var(--blush);transition:border-color .2s}
+.seller:hover{border-color:var(--wa)}
+.seller .av{width:42px;height:42px;border-radius:50%;background:var(--plum);color:var(--gold);display:grid;place-items:center;font-family:var(--f-brand);font-size:1.15rem;flex:none}
+.seller b{display:block;line-height:1.2}
+.seller small{color:var(--muted);font-variant-numeric:tabular-nums}
+@media (max-width:900px){.visit-grid{grid-template-columns:1fr}}
+@media (max-width:420px){.sellers{grid-template-columns:1fr}.panel{padding:22px}}
+
+/* Rodapé */
+footer{background:var(--plum);color:var(--on-plum);padding-block:56px 32px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;align-items:flex-start}
+.foot .brand{display:flex;flex-direction:column;gap:10px;max-width:340px}
+.foot .brand .brand-word{font-size:2.2rem;color:#fff4f7;line-height:1.3}
+.foot .brand p{opacity:.75;font-size:.95rem}
+.socials{display:flex;gap:12px}
+.socials a{width:46px;height:46px;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--on-plum) 40%,transparent);display:grid;place-items:center;transition:background .2s,border-color .2s}
+.socials a:hover{background:var(--pink);border-color:var(--pink)}
+.socials svg{width:20px;height:20px}
+.foot-cols{display:flex;flex-wrap:wrap;gap:48px}
+.foot-cols div{display:flex;flex-direction:column;gap:8px;font-size:.95rem}
+.foot-cols b{color:var(--gold);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.foot-cols a{text-decoration:none;opacity:.85}
+.foot-cols a:hover{opacity:1;color:var(--gold)}
+.copy{margin-top:40px;padding-top:20px;border-top:1px solid color-mix(in srgb,var(--on-plum) 18%,transparent);font-size:.85rem;opacity:.65;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+/* Botão flutuante de WhatsApp */
+.float-wa{position:fixed;z-index:40;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(31,157,85,.8)}
+.float-wa svg{width:30px;height:30px}
+
+/* Entrada suave (o conteúdo já está visível; só sobe um pouco) */
+.rise{animation:rise .8s both cubic-bezier(.2,.7,.2,1)}
+.rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.16s}.rise.d3{animation-delay:.24s}
+@keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+<style>/* Leaflet 1.9.4 */
+.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.9 9.9 0 0 0 12.04 2Zm5.8 14.04c-.24.68-1.42 1.32-1.96 1.37-.5.05-.98.24-3.3-.69-2.78-1.1-4.55-3.95-4.69-4.13-.13-.18-1.12-1.49-1.12-2.85s.71-2.02.97-2.3c.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.56.8 1.94.87 2.08.07.14.12.3.02.48-.1.18-.14.3-.28.46-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.27.72 1.18 1.54 1.91 1.06.94 1.95 1.24 2.23 1.38.27.14.43.12.6-.07.16-.18.69-.8.87-1.08.18-.27.37-.23.62-.14.25.09 1.6.76 1.88.9.27.13.46.2.52.32.07.11.07.66-.17 1.33Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></g></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Loja Menina Moça, início">
+      <img src="img/logo.jpg" alt="Logo da Loja Menina Moça" width="48" height="48">
+      <div><span>Menina Moça</span><small>Pires do Rio · GO</small></div>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#produtos">Produtos</a>
+      <a href="#novidades">Novidades</a>
+      <a href="#a-loja">A loja</a>
+      <a href="#visite">Visite</a>
+      <a class="btn btn-wa" href="https://wa.me/5564992946906?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Menina%20Mo%C3%A7a%20%F0%9F%92%96" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>Chamar no WhatsApp</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" style="padding-block:0">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="status rise" id="status"><i></i><span id="status-text">Seg–Sex 8h–19h · Sáb 8h–17h · Dom 9h–13h</span></span>
+        <h1 class="rise d1">Tudo o que você ama, num só lugar. <span class="brand-word">Menina Moça</span></h1>
+        <p class="lead rise d2">Bolsas, eletrônicos, caixas de som, acessórios, mochilas, brinquedos e presentes. Novidades toda semana no centro de Pires do Rio.</p>
+        <div class="cta-row rise d3">
+          <a class="btn btn-wa" href="https://wa.me/5564992946906?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Menina%20Mo%C3%A7a%20%F0%9F%92%96" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Falar com uma vendedora</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=-17.3010433,-48.2787501" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Como chegar</a>
+        </div>
+        <div class="mini-facts rise d3">
+          <span><b>14,7 mil</b> seguidores no Instagram</span>
+          <span><b>R. Joaquim Antônio Teixeira, 824</b> · Centro</span>
+        </div>
+      </div>
+      <div class="collage" aria-hidden="true">
+        <div class="story s1" style="aspect-ratio:1121/1403"><img src="img/bolsas.webp" alt=""></div>
+        <div class="story s2" style="aspect-ratio:1086/1448"><img src="img/bandeira.webp" alt=""></div>
+        <div class="story s3" style="aspect-ratio:994/1582"><img src="img/mochilas.webp" alt=""></div>
+        <div class="sticker"><div>Novidades<em>toda semana</em></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Bolsas</span><span>Carteiras</span><span>Caixas de som</span><span>Fones de ouvido</span><span>Bijuterias</span><span>Brincos</span><span>Mochilas</span><span>Malas de viagem</span><span>Pelúcias</span><span>Brinquedos</span><span>Papelaria</span><span>Decoração</span>
+      <span>Bolsas</span><span>Carteiras</span><span>Caixas de som</span><span>Fones de ouvido</span><span>Bijuterias</span><span>Brincos</span><span>Mochilas</span><span>Malas de viagem</span><span>Pelúcias</span><span>Brinquedos</span><span>Papelaria</span><span>Decoração</span>
+    </div>
+  </div>
+
+  <section id="produtos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="intro">
+          <span class="eyebrow">Nossas prateleiras</span>
+          <h2>Uma loja, mil <span class="brand-word">achadinhos</span></h2>
+          <p>Da bolsa para o trabalho ao presente de última hora. Passeie pelos nossos setores e, se gostar de algo, é só chamar no WhatsApp.</p>
+        </div>
+      </div>
+      <div class="shelves">
+        <article class="shelf">
+          <div class="pic" style="--bgimg:url(img/bolsas.webp)"><img src="img/bolsas.webp" alt="Vendedora mostrando duas bolsas de festa prateadas em frente à estante de bolsas" loading="lazy"></div>
+          <div class="body">
+            <h3>Bolsas e carteiras</h3>
+            <p>Bolsas de mão, transversais, de festa e carteiras em várias cores e tamanhos.</p>
+            <ul class="tags"><li>Bolsas</li><li>Carteiras</li><li>Clutches</li></ul>
+          </div>
+        </article>
+        <article class="shelf">
+          <div class="pic" style="--bgimg:url(img/eletronicos.webp)"><img src="img/eletronicos.webp" alt="Vendedora mostrando uma caixa de som JBL em frente à seção de brinquedos" loading="lazy"></div>
+          <div class="body">
+            <h3>Eletrônicos e som</h3>
+            <p>Caixas de som, fones de ouvido, carregadores, cabos e acessórios para celular.</p>
+            <ul class="tags"><li>Caixas de som</li><li>Fones</li><li>Celular</li></ul>
+          </div>
+        </article>
+        <article class="shelf">
+          <div class="pic" style="--bgimg:url(img/bijuterias.webp)"><img src="img/bijuterias.webp" alt="Modelo usando colares, anéis e pulseiras dourados com turquesa diante da parede de brincos" loading="lazy"></div>
+          <div class="body">
+            <h3>Acessórios e bijuterias</h3>
+            <p>Uma parede inteira de brincos, colares, anéis e pulseiras dourados, além de peças para praia e piscina.</p>
+            <ul class="tags"><li>Brincos</li><li>Colares</li><li>Cabelo</li></ul>
+          </div>
+        </article>
+        <article class="shelf">
+          <div class="pic" style="--bgimg:url(img/mochilas.webp)"><img src="img/mochilas.webp" alt="Clientes com pelúcias e adesivos em frente às mochilas de rodinha" loading="lazy"></div>
+          <div class="body">
+            <h3>Mochilas e malas</h3>
+            <p>Mochilas escolares e de personagens, estojos, lancheiras e malas de viagem.</p>
+            <ul class="tags"><li>Volta às aulas</li><li>Viagem</li><li>Personagens</li></ul>
+          </div>
+        </article>
+        <article class="shelf">
+          <div class="pic" style="--bgimg:url(img/squishies.webp)"><img src="img/squishies.webp" alt="Braçada de squishies gigantes: pato, panda, pinguim e porquinho" loading="lazy"></div>
+          <div class="body">
+            <h3>Brinquedos e fofuras</h3>
+            <p>Pelúcias, squishies, brinquedos que viralizam e lembrancinhas para todas as idades.</p>
+            <ul class="tags"><li>Pelúcias</li><li>Squishies</li><li>Presentes</li></ul>
+          </div>
+        </article>
+        <article class="shelf">
+          <div class="pic" style="--bgimg:url(img/natal.webp)"><img src="img/natal.webp" alt="Vendedora de gorro de Natal com caneca, Papai Noel de pelúcia e kit de presente" loading="lazy"></div>
+          <div class="body">
+            <h3>Datas especiais</h3>
+            <p>Decoração e presentes para Natal, Dia das Crianças, Dia das Mães, Halloween e muito mais.</p>
+            <ul class="tags"><li>Natal</li><li>Decoração</li><li>Presentes</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="news" id="novidades">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="intro">
+          <span class="eyebrow">Direto do nosso Instagram</span>
+          <h2>Chegou novidade na loja</h2>
+          <p>Toda semana tem produto novo nos stories e nos reels. Siga a gente para ver primeiro.</p>
+        </div>
+        <a class="btn btn-ghost" href="https://www.instagram.com/lojameninamocapdr/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>@lojameninamocapdr</a>
+      </div>
+      <div class="reels">
+        <a class="reel" href="https://www.instagram.com/lojameninamocapdr/" target="_blank" rel="noopener"><img src="img/p6.jpg" alt="Pato em bisnaga gigante" loading="lazy"><i class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i><span>Pato em bisnaga gigante</span></a>
+        <a class="reel" href="https://www.instagram.com/lojameninamocapdr/" target="_blank" rel="noopener"><img src="img/p7.jpg" alt="Squishy de morango" loading="lazy"><i class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i><span>Squishy de morango</span></a>
+        <a class="reel" href="https://www.instagram.com/lojameninamocapdr/" target="_blank" rel="noopener"><img src="img/p4.jpg" alt="Squishy de cachorro-quente" loading="lazy"><i class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i><span>Squishy de cachorro-quente</span></a>
+        <a class="reel" href="https://www.instagram.com/lojameninamocapdr/" target="_blank" rel="noopener"><img src="img/p2.jpg" alt="Tour pela loja" loading="lazy"><i class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i><span>Vem fazer um tour pela loja</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="a-loja">
+    <div class="wrap">
+      <figure class="about-photo" style="margin:0">
+        <img src="img/equipe.webp" alt="A dona da Loja Menina Moça" loading="lazy">
+        <div class="badge"><b>4,1 ★</b><small>21 avaliações no Google</small></div>
+        <figcaption><b>A dona</b> da Menina Moça</figcaption>
+      </figure>
+      <div class="about-copy">
+        <span class="eyebrow">A loja</span>
+        <h2>Feita para quem ama <span class="brand-word">variedade</span></h2>
+        <p>A Menina Moça fica no coração de Pires do Rio, na Rua Joaquim Antônio Teixeira. É aquela loja em que você entra para comprar um brinco e sai com a bolsa nova, um fone e o presente do aniversário da semana que vem. Nossa equipe atende com carinho, mostra as novidades e ajuda a escolher.</p>
+        <p>À frente de tudo está a dona da loja, que acompanha de perto cada novidade que chega às prateleiras e o atendimento de cada cliente.</p>
+        <p>Abrimos todos os dias da semana, inclusive domingo de manhã, e mostramos os lançamentos no Instagram e no TikTok.</p>
+        <div class="quotes">
+          <figure class="quote" style="margin:0"><span class="stars" aria-label="5 estrelas">★★★★★</span><p>“Adoro essa lojinha! Cheia de coisas que a gente gosta! Sempre venho aqui comprar brinco para praia e piscina!”</p><figcaption class="who"><i>A</i><span><b>Alliny</b><small>Local Guide · Google Maps</small></span></figcaption></figure>
+          <figure class="quote" style="margin:0"><span class="stars" aria-label="5 estrelas">★★★★★</span><p>“Sempre muito bem atendida e oferece excelentes produtos.”</p><figcaption class="who"><i>K</i><span><b>Katia A. Rabelo</b><small>Local Guide · Google Maps</small></span></figcaption></figure>
+          <figure class="quote" style="margin:0"><span class="stars" aria-label="4 estrelas">★★★★<span style="opacity:.3">★</span></span><p>“Sempre compro lá, as meninas são muito agradáveis com as pessoas.”</p><figcaption class="who"><i>S</i><span><b>Sirlene Domingos</b><small>Google Maps</small></span></figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vip" aria-labelledby="vip-title">
+    <div class="wrap">
+      <div class="vip-card">
+        <div>
+          <span class="eyebrow" style="color:#fff;opacity:.85">Grupo VIP</span>
+          <h2 id="vip-title" style="margin-top:10px">Promoções que só o grupo <span class="brand-word">VIP</span> vê</h2>
+          <p>Entre no nosso grupo de WhatsApp e receba ofertas exclusivas, lançamentos e avisos de reposição antes de todo mundo.</p>
+        </div>
+        <div class="vip-actions">
+          <a href="https://chat.whatsapp.com/JUHUZNlM5by70LNjnnrBjR" target="_blank" rel="noopener"><span>💎 Grupo VIP Menina Moça<small>Entrar no grupo 1</small></span><svg><use href="#i-wa"/></svg></a>
+          <a href="https://chat.whatsapp.com/IdTXId1Pfv04n4E9cGSthu" target="_blank" rel="noopener"><span>💎 Grupo VIP Menina Moça 2<small>Entrar no grupo 2</small></span><svg><use href="#i-wa"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visite">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="intro">
+          <span class="eyebrow">Visite a gente</span>
+          <h2>Estamos no Centro de Pires do Rio</h2>
+        </div>
+      </div>
+      <div class="visit-grid">
+        <div class="panel">
+          <div class="mapbox" role="region" aria-label="Mapa com a localização da Loja Menina Moça">
+            <div class="leaflet-host" id="leaflet"></div>
+            <div class="map-card" id="map-card">
+              <b>Menina Moça</b>
+              <span class="addr">R. Joaquim Antônio Teixeira, 824 - Centro, Pires do Rio - GO, 75200-000</span>
+              <span class="rate">4,1 <i>★★★★</i><i class="off">★</i> 21 avaliações</span>
+              <a class="route" href="https://www.google.com/maps/dir/?api=1&destination=-17.3010433,-48.2787501" target="_blank" rel="noopener"><span><svg><use href="#i-arrow"/></svg></span>Rotas</a>
+              <a class="big" href="https://www.google.com/maps/place/Menina+Mo%C3%A7a/@-17.3010433,-48.281325,17z/data=!3m1!4b1!4m6!3m5!1s0x94a762f66e9314e9:0x470c194254a5c246!8m2!3d-17.3010433!4d-48.2787501!16s%2Fg%2F11bzwnhgmf" target="_blank" rel="noopener">Ver mapa ampliado</a>
+            </div>
+            <button class="map-toggle" id="map-toggle" type="button" aria-label="Mostrar imagem de satélite"><img id="map-toggle-img" src="img/tiles/sat/17/47958/71933.jpg" alt=""><span id="map-toggle-txt">Satélite</span></button>
+          </div>
+          <ul class="contact-list">
+            <li><svg><use href="#i-pin"/></svg><div><b>R. Joaquim Antônio Teixeira, 824 – Centro</b><span>Pires do Rio – GO · CEP 75200-000</span></div></li>
+            <li><svg><use href="#i-phone"/></svg><div><b>Telefone da loja</b><span><a href="tel:+556434615062">(64) 3461-5062</a></span></div></li>
+          </ul>
+          <div class="sellers">
+            <a class="seller" href="https://wa.me/5564992946906" target="_blank" rel="noopener"><span class="av">L</span><span><b>Vendedora Laura</b><small>(64) 99294-6906</small></span></a>
+            <a class="seller" href="https://wa.me/5564992082272" target="_blank" rel="noopener"><span class="av">V</span><span><b>Vendedor Victor</b><small>(64) 99208-2272</small></span></a>
+          </div>
+        </div>
+        <div class="panel">
+          <h3><svg><use href="#i-clock"/></svg>Horário de funcionamento</h3>
+          <table class="hours" id="hours">
+            <tbody>
+              <tr data-d="1"><td>Segunda-feira</td><td>8h às 19h</td></tr>
+              <tr data-d="2"><td>Terça-feira</td><td>8h às 19h</td></tr>
+              <tr data-d="3"><td>Quarta-feira</td><td>8h às 19h</td></tr>
+              <tr data-d="4"><td>Quinta-feira</td><td>8h às 19h</td></tr>
+              <tr data-d="5"><td>Sexta-feira</td><td>8h às 19h</td></tr>
+              <tr data-d="6"><td>Sábado</td><td>8h às 17h</td></tr>
+              <tr data-d="0"><td>Domingo</td><td>9h às 13h</td></tr>
+            </tbody>
+          </table>
+          <a class="btn btn-pink" style="align-self:flex-start" href="https://www.google.com/maps/dir/?api=1&destination=-17.3010433,-48.2787501" target="_blank" rel="noopener">Traçar rota até a loja<svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand">
+        <span class="brand-word">Menina Moça</span>
+        <p>Bolsas, eletrônicos, caixas de som, acessórios e muito mais. Novidades toda semana em Pires do Rio – GO.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/lojameninamocapdr/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+          <a href="https://www.tiktok.com/@meninamocapdr" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tt"/></svg></a>
+          <a href="https://wa.me/5564992946906" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-cols">
+        <div><b>Navegue</b><a href="#produtos">Produtos</a><a href="#novidades">Novidades</a><a href="#a-loja">A loja</a><a href="#visite">Visite</a></div>
+        <div><b>Atendimento</b><span>Seg a Sex · 8h–19h</span><span>Sábado · 8h–17h</span><span>Domingo · 9h–13h</span></div>
+        <div><b>Endereço</b><span>R. Joaquim Antônio Teixeira, 824</span><span>Centro · Pires do Rio – GO</span><span>(64) 3461-5062</span></div>
+      </div>
+    </div>
+    <div class="copy"><span>© <span id="year">2026</span> Loja Menina Moça. Todos os direitos reservados.</span><span>@lojameninamocapdr</span></div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/5564992946906?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Menina%20Mo%C3%A7a%20%F0%9F%92%96" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<script>
+(function(){
+  // Horário da loja (Pires do Rio usa o horário de Brasília)
+  var hours={0:[9,13],1:[8,19],2:[8,19],3:[8,19],4:[8,19],5:[8,19],6:[8,17]};
+  var names=["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
+  function update(){
+  var now;
+  try{
+    var p=new Intl.DateTimeFormat("en-US",{timeZone:"America/Sao_Paulo",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+    var g=function(t){return (p.find(function(x){return x.type===t})||{}).value};
+    var wd={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[g("weekday")];
+    now={d:wd,h:(+g("hour"))%24+(+g("minute"))/60};
+  }catch(e){var d=new Date();now={d:d.getDay(),h:d.getHours()+d.getMinutes()/60}}
+  document.querySelectorAll("#hours tr.today").forEach(function(r){r.classList.remove("today")});
+  var row=document.querySelector('#hours tr[data-d="'+now.d+'"]');
+  if(row) row.classList.add("today");
+  var el=document.getElementById("status"),txt=document.getElementById("status-text");
+  el.classList.remove("open","closed");
+  var t=hours[now.d],fmt=function(h){return h+"h"};
+  if(now.h>=t[0]&&now.h<t[1]){
+    el.classList.add("open");txt.textContent="Aberto agora · fecha às "+fmt(t[1]);
+  }else{
+    el.classList.add("closed");
+    var nd=now.d,label;
+    if(now.h<t[0]){label="hoje às "+fmt(t[0])}
+    else{nd=(now.d+1)%7;label=(nd===(now.d+1)%7?"amanhã":names[nd])+" às "+fmt(hours[nd][0])}
+    txt.textContent="Fechado agora · abre "+label;
+  }
+  }
+  update();
+  // Confere de novo a cada 30 segundos, para abrir e fechar na hora certa com a página aberta
+  setInterval(update,30000);
+  document.addEventListener("visibilitychange",function(){if(!document.hidden)update()});
+  document.getElementById("year").textContent=new Date().getFullYear();
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+  var LAT=-17.3010433, LNG=-48.2787501;
+  var host=document.getElementById("leaflet"), toggle=document.getElementById("map-toggle");
+  // Fora do Claude (site no domínio próprio) mostra o Google Maps de verdade
+  if(!/claude/i.test(location.hostname)){
+    host.innerHTML='<iframe src="https://www.google.com/maps?q=Menina+Mo%C3%A7a,+R.+Joaquim+Ant%C3%B4nio+Teixeira,+824+-+Centro,+Pires+do+Rio+-+GO&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Loja Menina Moça no Google Maps" allowfullscreen></iframe>';
+    toggle.hidden=true; document.getElementById("map-card").hidden=true;
+    return;
+  }
+  if(!window.L){ host.style.background="url(img/tiles/rua/17/47958/71933.jpg) center/cover"; toggle.hidden=true; return; }
+  var bounds=L.latLngBounds([-17.3060657,-48.2849121],[-17.2955764,-48.2739258]);
+  var map=L.map(host,{center:[LAT,LNG],zoom:17,minZoom:17,maxZoom:19,maxBounds:bounds,maxBoundsViscosity:1,scrollWheelZoom:false,zoomControl:false});
+  L.control.zoom({position:"bottomright",zoomInTitle:"Aproximar",zoomOutTitle:"Afastar"}).addTo(map);
+  map.attributionControl.setPrefix(false);
+  var opt={bounds:bounds,minZoom:17,maxZoom:19,maxNativeZoom:18,errorTileUrl:"data:image/gif;base64,R0lGODlhAQABAAAAACw="};
+  var rua=L.tileLayer("img/tiles/rua/{z}/{x}/{y}.jpg",Object.assign({className:"tiles-rua",attribution:"Esri, HERE, Garmin, © OpenStreetMap"},opt)).addTo(map);
+  var sat=L.tileLayer("img/tiles/sat/{z}/{x}/{y}.jpg",Object.assign({attribution:"Esri, Maxar, Earthstar Geographics"},opt));
+  var pin=L.divIcon({className:"",iconSize:[28,40],iconAnchor:[14,40],html:'<svg class="gpin" width="28" height="40" viewBox="0 0 28 40"><path d="M14 0C6.3 0 0 6.2 0 13.9 0 24.3 14 40 14 40s14-15.7 14-26.1C28 6.2 21.7 0 14 0Z" fill="#ea4335"/><path d="M14 0C6.3 0 0 6.2 0 13.9 0 24.3 14 40 14 40s14-15.7 14-26.1C28 6.2 21.7 0 14 0Z" fill="none" stroke="#a50e0e" stroke-width="1"/><circle cx="14" cy="14" r="5" fill="#a50e0e"/></svg>'});
+  L.marker([LAT,LNG],{icon:pin,title:"Menina Moça",keyboard:false}).addTo(map)
+    .bindTooltip("Menina Moça",{permanent:true,direction:"right",offset:[14,-24],className:"pin-label"});
+  var onSat=false;
+  toggle.addEventListener("click",function(){
+    onSat=!onSat;
+    if(onSat){map.removeLayer(rua);sat.addTo(map);}else{map.removeLayer(sat);rua.addTo(map);}
+    document.getElementById("map-toggle-img").src=onSat?"img/tiles/rua/17/47958/71933.jpg":"img/tiles/sat/17/47958/71933.jpg";
+    document.getElementById("map-toggle-txt").textContent=onSat?"Mapa":"Satélite";
+    toggle.setAttribute("aria-label",onSat?"Mostrar mapa de ruas":"Mostrar imagem de satélite");
+  });
+})();
+</script>
+</body>
+</html>
